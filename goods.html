@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/mui.css" rel="stylesheet" />
+	</head>
+		<form action="">
+			<table style="margin-bottom: 35px;">
+				<tr class="mui-table-view">
+					<td class="mui-table-view">商品名称</td>
+					<td class="mui-table-view">价格</td>
+					<td class="mui-table-view">操作</td>
+				</tr>
+				@foreach($data as $K=>$v)
+				<tr class="mui-table-view">
+					<td class="mui-table-view">{{$v['goodsname']}}</td>
+					<td class="mui-table-view">{{$v['price']}}</td>
+					<td class="mui-table-view"><button id="cart" value="$v['goods_id']" class="mui-btn mui-btn-primary">商品详情页</button></td>
+				</tr>
+				@endforeach
+			</table>
+		</form>
+	<body>
+	<script type="text/javascript">
+		//打开此页,获取商品列表的值
+// 		$(function(){
+// 			mui.ajax({
+// 				url:'http://1807.96myshop.cn/startest',
+// 				data:{},
+// 				dataType:'json',
+// 				type:'post',
+// 				timeout:10000,
+// 				success:function(data){
+// 					alert(data);
+// 				},
+// 				error:function(xhr,type,errorThrown){
+// 					//异常处理
+// 					alert(type);
+// 				}
+// 			})
+// 		});
+		//点击进入详情页,获取值,将商品id值传给api,并跳转到购物车页面
+		$(function(){
+			$("#cart").click(function(){
+				var goods_id=$("#cart").val();
+				mui.ajax({
+					url:'http://1807.96myshop.cn/cartest',
+					data:{
+						goods_id:goods_id
+					},
+					dataType:'json',
+					type:'post',
+					timeout:10000,
+					success:function(data){
+						alert(data);
+						if(data.status==200){
+							window.location.replace('cart.html');
+						}
+					},
+					error:function(xhr,type,errorThrown){
+						//异常处理
+						alert(type);
+					}
+				})
+			})
+		})
+	</script>
+	</body>
+</html>
