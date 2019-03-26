@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/app.css"/>
+		
+		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+		<link rel="stylesheet" href="css/mui.min.css" >
+		<script type="text/javascript" src="js/mui.min.js"></script>
+
+		<title></title>
+		
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" >商品详情</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						商品名称: <span id="channel" ></span>
+					</li>
+					<li class="mui-table-view-cell">
+						商品数量: <span id="bill_no" >1</span>
+					</li>
+					<li class="mui-table-view-cell">
+						商品金额: <span id="total_fee"></span>
+					</li>
+					<li>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<button type="button" class="mui-btn mui-btn-warning" id="but">
+							加入购物车 <span class="mui-icon-extra mui-icon-extra-cart"></span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script>
+	mui.init();
+	$(function(){
+		alert(GetQueryString("goods_id"));
+		/* mui.ajax('http://zty77.com/hb/goodsdetail',{
+			dataType:'json',
+			async:false, // 异步 || 同步    
+			timeout: 10000,  
+			success: function(msg){
+				if(msg.error==0){
+					 
+				}else{
+					
+				}
+				
+			}, 
+			error: function(xhr, type, errorThrown) {  
+				// alert('hhhhh')
+ 			}  
+		}) */
+		//加入购物车按钮 提交 api 
+		var name = $("#channel").text();
+		var num = $("#bill_no").text();
+		var price = $("#total_fee").text();
+		console.log(name)
+		$("#but").click(function(){
+			$.post(
+				"http://second.zty77.com",
+				{name:goods_name,num:num,price:price},
+				function(msg){
+					alert(msg)
+				}
+			)
+		});
+		
+		
+	})
+</script>
