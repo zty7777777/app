@@ -19,11 +19,11 @@
 <form class="mui-input-group">
     <div class="mui-input-row">
         <label>用户名</label>
-    <input type="text" value="zhang" class="mui-input-clear" placeholder="请输入用户名">
+    <input type="text" value="111" class="mui-input-clear" placeholder="请输入用户名">
     </div>
     <div class="mui-input-row">
         <label>密码</label>
-        <input type="password" value="1234" class="mui-input-password" placeholder="请输入密码">
+        <input type="password" value="111111" class="mui-input-password" placeholder="请输入密码">
     </div>
     <div class="mui-button-row">
         <button type="button" id="login" class="mui-btn mui-btn-primary" >登录</button>
@@ -38,42 +38,45 @@
 	mui.init();
 	mui.plusReady(function(){
 		mui('body').on('tap','#login',function(){
-			//mui.toast('SUCCESS');
+		//	mui.toast('SUCCESS');
 			var name=mui('.mui-input-clear')[0].value;
 			if(name==""){
 				mui.alert("用户名不能为空");
 				return false;
 			}
-			var psd=mui('.mui-input-password')[0].value;
-			if(psd==""){
+			var password=mui('.mui-input-password')[0].value;
+			if(password==""){
 				mui.alert("密码不能为空");
 				return false;
 			}
 			
 			
-					mui.ajax('http://zhangmengwei.moodfei.cn/login/client',{
+					mui.ajax('http://second.zty77.com/hb/login',{
 				data:{
 					name:name,
-					psd:psd
+					password:password
 				},
 				dataType:'json',//服务器返回json格式数据
 				type:'post',//HTTP请求类型
 				timeout:10000,//超时时间设置为10秒；
 			//	headers:{'Content-Type':'application/x-www-form-urIencode'},	              
 				success:function(msg){ 
-					if(msg.status == 1000){
-					      
-						  mui.alert("恭喜你通过审核");   
-						  mui.openWindow({
-										url: 'center.html', 
-										show:{
-											autoShow:true
-										}
-								});
-					}else{   
-						mui.alert('请您重试！');
-						
-					}
+					//alert(msg.error);
+					if(msg.error==0){
+							if(!window.localStorage){
+								alert("浏览器支持localstorage");
+							}else{
+								var storage=window.localStorage;
+								//写入a字段
+								storage["token"]=msg.token;
+								storage["name"]=msg.name;
+								storage["password"]=msg.password;
+								alert("登录成功")
+							}
+							window.location.replace("center.html")
+						}else{
+							alert('账号或密码错误')
+						}
 				}
 			});
 			
