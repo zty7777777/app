@@ -18,7 +18,7 @@
 		</header>
 		<input type="hidden" name="goods_id" id="goods_id" value="" />
 		<div class="mui-content">
-			<div class="mui-content-padded">
+			<div class="mui-content-padded" style="width: 500px;">
 				<ul class="mui-table-view">
 					<li class="mui-table-view-cell">
 						商品名称: <span id="channel" ></span>
@@ -32,7 +32,7 @@
 					<li>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<button type="button" class="mui-btn mui-btn-warning" id="but">
 							加入购物车 <span class="mui-icon-extra mui-icon-extra-cart"></span>
 						</button>
@@ -73,12 +73,7 @@
 			'json'
 		)
 		//加入购物车按钮 提交 api   5
-		$("#but").click(function(){
-// 			alert(goods_name)
-// 			alert(goods_price)
-// 			alert(buy_num)
-// 			alert(goods_id)
-			
+		$("#but").click(function(){			
 			$.post(
 				"http://second.zty77.com/cartadd",
 				{goods_name:goods_name,buy_num:buy_num,goods_price:goods_price,goods_id:goods_id},
@@ -96,7 +91,5 @@
 				}
 			)
 		});
-		
-		
 	})
 </script>
