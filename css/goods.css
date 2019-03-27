@@ -1,0 +1,17 @@
+*{
+padding:0;
+margin:0;
+}
+.dis{
+	height:30px;
+	background:#fafafa;
+	padding-top:50px;
+	padding-left:10px;
+	background-color:#ffffff;
+}
+.list tr td{
+	font-size:15px;
+	color:red;
+	padding: 0px 13px;
+	line-height:44px
+}
