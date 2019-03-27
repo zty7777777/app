@@ -16,6 +16,7 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title" >商品详情</h1>
 		</header>
+		<input type="hidden" name="goods_id" id="goods_id" value="" />
 		<div class="mui-content">
 			<div class="mui-content-padded">
 				<ul class="mui-table-view">
@@ -52,11 +53,17 @@
 			if(r!=null)return  unescape(r[2]); return null;
 		}
 		var goods_id = GetQueryString("goods_id");
+		
 		$.post(
 			"http://second.zty77.com/hb/goodsdetail",
 			{goods_id:goods_id},
 			function(msg){
-				alert(msg)
+				if(msg.error==0){
+					$("#channel").html("msg.goods_name")
+					$("#bill_no").html("1")
+					$("#total_fee").html("msg.goods_price")
+					$("#goods_id").val("msg.goods_id")
+				}
 			}
 		)
 		//加入购物车按钮 提交 api 
