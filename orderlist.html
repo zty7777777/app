@@ -17,18 +17,16 @@
 			<div class="mui-card">
 				<ul class="mui-table-view">	
 					 <li class="mui-table-view-cell">
-							<font>订单ID</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  
-							<font>订单Order</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  
-							<font>订单总价</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-							<font>添加时间</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+							<font>订单ID</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<font>订单号</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<font>订单总价</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
 							<font>操作</font>
 						</li>
 					 <li class="mui-table-view-cell" id="show">
-						<font></font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+						<font></font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
 						<font></font>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<font></font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
-						<font></font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;
+						<font></font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
+						<font></font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
 						<font></font>
 					</li>
 				</ul>
@@ -54,14 +52,9 @@
 						for(var i in msg) {
 							_li +="<li class='mui-table-view-cell'>"+
 								"<font>"+msg[i]['order_id']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-								"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
 								"<font>"+msg[i]['order_number']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;"+ 
-								"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+ 
-								"<font>"+msg[i]['order_amount']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-								"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-								"<font>"+msg[i]['add_time']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-								"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-								"<font><a href='pay.html?order_number="+msg[i]['order_number']+"'>支付宝支付</a></font>"+
+								"<font>"+msg[i]['order_amount']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
+								"<font><a href='pay.html?order_number="+msg[i]['order_number']+"'>去支付</a></font>"+
 								"</li>"
 						}
 						//替换
