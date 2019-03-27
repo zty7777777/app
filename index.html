@@ -38,7 +38,7 @@
 	mui.init();
 	mui.plusReady(function(){
 		mui('body').on('tap','#login',function(){
-			//mui.toast('SUCCESS');
+		//	mui.toast('SUCCESS');
 			var name=mui('.mui-input-clear')[0].value;
 			if(name==""){
 				mui.alert("用户名不能为空");
@@ -61,6 +61,7 @@
 				timeout:10000,//超时时间设置为10秒；
 			//	headers:{'Content-Type':'application/x-www-form-urIencode'},	              
 				success:function(msg){ 
+					//alert(msg.error);
 					if(msg.error==0){
 							if(!window.localStorage){
 								alert("浏览器支持localstorage");
