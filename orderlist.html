@@ -18,8 +18,8 @@
 				<ul class="mui-table-view">	
 					 <li class="mui-table-view-cell">
 							<font>订单ID</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<font>订单号</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<font>订单总价</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+							<font>订单号</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<font>订单总价</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
 							<font>操作</font>
 						</li>
 					 <li class="mui-table-view-cell" id="show">
@@ -46,7 +46,6 @@
 					type:'post',
 					timeout:10000,
 					success:function(msg){
-						alert(msg);
 						var _li=''
 						//循环
 						for(var i in msg) {
