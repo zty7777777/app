@@ -9,28 +9,37 @@
 		<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/mui.css" rel="stylesheet" />
+		<link href="css/goods.css" rel="stylesheet">
+		<link href="css/mui.css" rel="stylesheet" />
 	</head>
-		<table border="1">
-			<thead>
-			<tr class="mui-table-view">
-				<td class="mui-table-view-cell">商品名称</td>
-				<td class="mui-table-view-cell">价格</td>
-				<td class="mui-table-view-cell">操作</td>
-			</tr>
-			</thead>
-			<tbody id="head">
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			</tbody>
-		</table>
 	<body>
+		<div>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title" >商品列表页</h1>
 		</header>
+		</div>
+		<!-- <hr><hr><hr><hr> -->
+		<div class="dis">
+			<form action="">
+				<table border="1" class="list">
+					<thead>
+					<tr class="mui-table-view">
+						<td class="mui-table-view-cell">商品名称</td>
+						<td class="mui-table-view-cell">价格</td>
+						<td class="mui-table-view-cell">操作</td>
+					</tr>
+					</thead>
+					<tbody id="head">
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+					</tbody>
+				</table>
+			</form>
+		</div>
 	<script type="text/javascript">
 		//打开此页,获取商品列表的值
 		$(function(){
