@@ -51,24 +51,14 @@
 			var r = window.location.search.substr(1).match(reg);
 			if(r!=null)return  unescape(r[2]); return null;
 		}
-		alert(GetQueryString("goods_id"));
-		//alert(GetQueryString("goods_id"));
-		/* mui.ajax('http://zty77.com/hb/goodsdetail',{
-			dataType:'json',
-			async:false, // 异步 || 同步    
-			timeout: 10000,  
-			success: function(msg){
-				if(msg.error==0){
-					 
-				}else{
-					
-				}
-				
-			}, 
-			error: function(xhr, type, errorThrown) {  
-				// alert('hhhhh')
- 			}  
-		}) */
+		var goods_id = GetQueryString("goods_id");
+		$.post(
+			"http://second.zty77.com/hb/goodsdetail",
+			{goods_id:goods_id},
+			function(msg){
+				alert(msg)
+			}
+		)
 		//加入购物车按钮 提交 api 
 		var name = $("#channel").text();
 		var num = $("#bill_no").text();
