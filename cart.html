@@ -47,6 +47,7 @@
 		<script type="text/javascript">
 			mui.init()
 			$(function(){
+				//加载购物车商品数据
 					 mui.ajax('http://second.zty77.com/cartinfo',{
 						data:{
 							id:1
@@ -57,12 +58,12 @@
 						success:function(msg){
 							var _li='';
 							for(var i in msg) {
-								_li +="<li class='mui-table-view-cell'>"+
+								_li +="<li class='mui-table-view-cell cartshow'>"+
 									"<font class='goods_name'>"+msg[i]['goods_name']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
 									"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
 									"<font color='red' class='goods_price'>"+msg[i]['goods_price']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;"+ 
 									"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+ 
-									"<font  class='goods_num'>"+msg[i]['buy_num']+"</font>" +
+									"<font  class='buy_num'>"+msg[i]['buy_num']+"</font>" +
 									"</li>"
 							}
 							// alert(_tr);
@@ -76,11 +77,22 @@
 				
 				//去结算
 				$('#pay').click(function(){
-					var goods_name=$('.goods_name').text();
-					var goods_price=$('.goods_price').text();
-					mui.ajax('http://second.zty77.com/api/loginInfo',{
+					//循环获取商品价格
+					total=0;
+					num=0;
+					$('.cartshow').each(function(index){
+						
+							var subtotal = $(this).find("font[class='goods_price']").text();
+							var n = parseInt($(this).find("font[class='buy_num']").text());
+							subtotal = parseInt(subtotal)*n//总计
+							total+=subtotal;
+
+					});
+					//alert(total);
+					mui.ajax('http://second.zty77.com/order',{
 									data:{
-										
+										uid:1,
+										order_amount:total
 									},
 									async:true,
 									type:'post',
@@ -88,9 +100,10 @@
 									timeout:10000,
 									success:function(data){
 										//请求成功
-										mui.alert(data.msg,data.error,'确定',function (e) {
+										mui.alert(data.msg,'进入订单列表','确定',function (e) {
 										   e.index
 										},'div')
+										window.location.replace('orderlist.html');
 										
 									},
 									error:function(xhr, type, errorThrown){
