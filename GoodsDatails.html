@@ -43,12 +43,8 @@
 </html>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script>
-	var goods_id = GetQueryString("goods_id");
-	alert("" + goods_id)
 	mui.init();
 	$(function(){
-<<<<<<< HEAD
-=======
 		function GetQueryString(name)
 		{
 			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -56,7 +52,6 @@
 			if(r!=null)return  unescape(r[2]); return null;
 		}
 		alert(GetQueryString("goods_id"));
->>>>>>> miaomiao
 		//alert(GetQueryString("goods_id"));
 		/* mui.ajax('http://zty77.com/hb/goodsdetail',{
 			dataType:'json',
