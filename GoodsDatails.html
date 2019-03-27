@@ -43,9 +43,11 @@
 </html>
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script>
+	var goods_id = GetQueryString("goods_id");
+	alert("" + goods_id)
 	mui.init();
 	$(function(){
-		alert(GetQueryString("goods_id"));
+		//alert(GetQueryString("goods_id"));
 		/* mui.ajax('http://zty77.com/hb/goodsdetail',{
 			dataType:'json',
 			async:false, // 异步 || 同步    
