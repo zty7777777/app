@@ -47,6 +47,16 @@
 	alert("" + goods_id)
 	mui.init();
 	$(function(){
+<<<<<<< HEAD
+=======
+		function GetQueryString(name)
+		{
+			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if(r!=null)return  unescape(r[2]); return null;
+		}
+		alert(GetQueryString("goods_id"));
+>>>>>>> miaomiao
 		//alert(GetQueryString("goods_id"));
 		/* mui.ajax('http://zty77.com/hb/goodsdetail',{
 			dataType:'json',
