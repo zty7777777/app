@@ -13,10 +13,10 @@
 		<form action="">
 			<table border="1">
 				<thead>
-				<tr >
-					<td >商品名称</td>
-					<td >价格</td>
-					<td>操作</td>
+				<tr class="mui-table-view">
+					<td class="mui-table-view-cell">商品名称</td>
+					<td class="mui-table-view-cell">价格</td>
+					<td class="mui-table-view-cell">操作</td>
 				</tr>
 				</thead>
 				<tbody id="head">
@@ -43,10 +43,10 @@
 					var _tr='';
 					//循环
 					for(var i in msg) {
-						_tr +="<tr>"+
-							"<td>"+msg[i]['goods_name']+"</td>" +
-							"<td>"+msg[i]['goods_price']+"</td>" +
-							"<td><a href='GoodsDatails.html?goods_id="+msg[i]['goods_id']+"'>详情页</a></td>" +
+						_tr +="<tr class='mui-table-view'>"+
+							"<td class='mui-table-view-cell'>"+msg[i]['goods_name']+"</td>" +
+							"<td class='mui-table-view-cell'>"+msg[i]['goods_price']+"</td>" +
+							"<td class='mui-table-view-cell'><a href='GoodsDatails.html?goods_id="+msg[i]['goods_id']+"'>详情页</a></td>" +
 							"</tr>"
 					}
 					// alert(_tr);
