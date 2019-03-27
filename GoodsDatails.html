@@ -3,9 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
-		<link rel="stylesheet" type="text/css" href="css/app.css"/>
 		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
-		<link rel="stylesheet" href="css/mui.min.css" >
+		<link href="css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" src="js/mui.min.js"></script>
 
 		<title></title>
@@ -14,11 +13,11 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title" >商品详情</h1>
+			<h1 class="mui-title">商品详情</h1>
 		</header>
 		<input type="hidden" name="goods_id" id="goods_id" value="" />
 		<div class="mui-content">
-			<div class="mui-card" style="width: 354px;">
+			<div class="mui-card" style="width: 98%;">
 				<ul class="mui-table-view">
 					<li class="mui-table-view-cell">
 						商品名称: <span id="channel" ></span>
@@ -29,9 +28,7 @@
 					<li class="mui-table-view-cell">
 						商品金额: <span id="total_fee"></span>
 					</li>
-					<li>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<li align="right">
 						<button type="button" class="mui-btn mui-btn-warning" id="but">
 							加入购物车 <span class="mui-icon-extra mui-icon-extra-cart"></span>
 						</button>
