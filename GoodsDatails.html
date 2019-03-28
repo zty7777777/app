@@ -29,6 +29,9 @@
 					<li class="mui-table-view-cell">
 						商品金额: <span id="total_fee"></span>
 					</li>
+					<li class="mui-table-view-cell">
+							<p>浏览次数</p>
+					</li>
 					<li>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -46,6 +49,7 @@
 <script>
 	mui.init();
 	$(function(){
+		//获取列表页面get请求的商品id
 		function GetQueryString(name)
 		{
 			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -53,11 +57,12 @@
 			if(r!=null)return  unescape(r[2]); return null;
 		}
 		var goods_id = GetQueryString("goods_id");
-		
+		//通过post传给api
 		$.post(
 			"http://second.zty77.com/hb/goodsdetail",
 			{goods_id:goods_id},
 			function(msg){
+				//api返回参数
 				if(msg.error==0){
 					$("#channel").html("msg.goods_name")
 					$("#bill_no").html("1")
@@ -70,13 +75,15 @@
 		var name = $("#channel").text();
 		var num = $("#bill_no").text();
 		var price = $("#total_fee").text();
-		console.log(name)
 		$("#but").click(function(){
 			$.post(
 				"http://second.zty77.com",
 				{name:goods_name,num:num,price:price},
 				function(msg){
-					alert(msg)
+					if(msg.error==0){
+						alert("成功添加到购物车~")
+						window.location.replace('cart.html');
+					}
 				}
 			)
 		});
