@@ -48,7 +48,7 @@
 				var storage=window.localStorage;
 				var token =  storage.token;
 				var uid =  storage.uid;
-				//alert(typeof(uid));
+				//alert(uid);
 				//判断登录
 				/* if(typeof(uid)=='undefined'){
 					mui.alert('你还未登录，请先登录','去登录','btnValue',function (e) {
@@ -59,7 +59,7 @@
 				//加载购物车商品数据
 					 mui.ajax('http://second.zty77.com/cartinfo',{
 						data:{
-							uid:uid
+							id:uid
 						},
 						dataType:'json',//服务器返回json格式数据
 						type:'post',//HTTP请求类型
@@ -80,7 +80,7 @@
 							$('#cartshow').html(_li)
 						},
 						error:function(xhr,type,errorThrown){
-							alert(type)
+							//alert(type)
 						}
 					}) ; 
 	
