@@ -56,6 +56,7 @@
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title" >喵云购物</h1>
+			<a href="tabbar.html" style="float: right;padding-top: 15px;">刷新</a>
 		</header>
 		<div class="flex-container">
 		<nav class="mui-bar mui-bar-tab">
@@ -63,9 +64,9 @@
 				<span class="mui-icon mui-icon-home"></span>
 				<span class="mui-tab-label">首页</span>
 			</a>
-			<a class="mui-tab-item" href="#tabbar-with-chat">
-				<span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
-				<span class="mui-tab-label">购物车</span>
+			<a class="mui-tab-item" href="#tabbar-with-chat" id="newcart">
+				<span id="newcart1" class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
+				<span id="newcart2" class="mui-tab-label">购物车</span>
 			</a>
 			<a class="mui-tab-item" href="#tabbar-with-contact">
 				<span class="mui-icon mui-icon-contact mui-icon mui-icon-person"></span>
@@ -88,7 +89,11 @@
 			</div>
 			<div id="tabbar-with-chat" class="mui-control-content">
 				<div id="cart">
+<<<<<<< HEAD
+					<iframe id="cartnow" align="center" width="100%" height="1000" src="cart.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+=======
 					<iframe  align="center" width="100%" height="1000" src="cart.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+>>>>>>> 4e27fc242d16da7b999602ea46595b2953fc3cee
 				</div>
 			</div>
 			<div id="tabbar-with-contact" class="mui-control-content">
@@ -282,7 +287,7 @@
 		$(function(){
 			var storage=window.localStorage;
 			var name=storage.name
-			if(name=='undefined'){
+			if(typeof(name)=="undefined"){
 				$('#image').html("<img width='60' src='images/60x60.gif'/>")
 				$('#name').html("<a href='index.html'>点击登录</a>")
 			}else{
@@ -296,6 +301,7 @@
 				storage.clear();
 				window.location.replace("index.html")
 			})
+			
 		})
 	</script>
 </html>
