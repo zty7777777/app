@@ -28,7 +28,17 @@
 					<li class="mui-table-view-cell">
 						商品金额: <span id="total_fee"></span>
 					</li>
+<<<<<<< HEAD
 					<li align="right">
+=======
+					<li class="mui-table-view-cell">
+							<p>浏览次数</p>
+					</li>
+					<li>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+>>>>>>> miaomiao
 						<button type="button" class="mui-btn mui-btn-warning" id="but">
 							加入购物车 <span class="mui-icon-extra mui-icon-extra-cart"></span>
 						</button>
@@ -41,7 +51,12 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script>
 	mui.init();
+<<<<<<< HEAD
 	$(function(){
+=======
+	$(function(){
+		//获取列表页面get请求的商品id
+>>>>>>> miaomiao
 		function GetQueryString(name)
 		{
 			var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
@@ -50,11 +65,12 @@
 		}
 		
 		var goods_id = GetQueryString("goods_id");
-		
+		//通过post传给api
 		$.post(
 			"http://second.zty77.com/hb/goodsdetail",
 			{goods_id:goods_id},
 			function(msg){
+				//api返回参数
 				if(msg.error==0){
 					goods_name=msg.data.goods_name
 					goods_price=msg.data.goods_price
@@ -77,8 +93,11 @@
 		var name = $("#channel").text();
 		var num = $("#bill_no").text();
 		var price = $("#total_fee").text();
+<<<<<<< HEAD
 		console.log(name)
 		//加入购物车按钮 提交 api   5
+=======
+>>>>>>> miaomiao
 		$("#but").click(function(){
 // 			alert(goods_name)
 // 			alert(goods_price)
@@ -88,6 +107,7 @@
 				"http://second.zty77.com/cartadd",
 				{goods_name:goods_name,buy_num:buy_num,goods_price:goods_price,goods_id:goods_id1},
 				function(msg){
+<<<<<<< HEAD
 					// alert(msg.error);
 					if(msg.error==0){
 						alert('添加成功')
@@ -99,6 +119,13 @@
 					}
 				},
 				'json'
+=======
+					if(msg.error==0){
+						alert("成功添加到购物车~")
+						window.location.replace('cart.html');
+					}
+				}
+>>>>>>> miaomiao
 			)
 		});
 	})
