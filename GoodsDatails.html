@@ -115,7 +115,12 @@
 				function(msg){
 					if(msg.error==0){
 						alert("收藏成功")
+						$("#collect").html("<button>已收藏</button>");
 
+						<button type="button"  class="mui-btn mui-btn-primary" id="collect">
+							加入收藏
+						</button>
+						
 					}else{
 						alert("已收藏")
 					}
