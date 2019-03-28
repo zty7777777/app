@@ -28,6 +28,9 @@
 					<li class="mui-table-view-cell">
 						商品金额: <span id="total_fee"></span>
 					</li>
+					<li class="mui-table-view-cell">
+						浏览次数: <span id="look_count"></span>
+					</li>
 					<li align="right">
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,6 +73,7 @@
 					$("#bill_no").html("1")
 					$("#total_fee").html("<span>"+msg.data.goods_price+"</span>")
 					$("#goods_id").val(msg.data.goods_id)
+					$("#look_count").html("<span>"+msg.look_count+"</span>");
 				}
 			},
 			'json'
