@@ -2,10 +2,9 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="css/app.css"/>
-		
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
-		<link rel="stylesheet" href="css/mui.min.css" >
+		<link href="css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" src="js/mui.min.js"></script>
 
 		<title></title>
@@ -14,11 +13,11 @@
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title" >商品详情</h1>
+			<h1 class="mui-title">商品详情</h1>
 		</header>
 		<input type="hidden" name="goods_id" id="goods_id" value="" />
 		<div class="mui-content">
-			<div class="mui-content-padded">
+			<div class="mui-card" style="width: 98%;">
 				<ul class="mui-table-view">
 					<li class="mui-table-view-cell">
 						商品名称: <span id="channel" ></span>
@@ -29,10 +28,7 @@
 					<li class="mui-table-view-cell">
 						商品金额: <span id="total_fee"></span>
 					</li>
-					<li>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<li align="right">
 						<button type="button" class="mui-btn mui-btn-warning" id="but">
 							加入购物车 <span class="mui-icon-extra mui-icon-extra-cart"></span>
 						</button>
@@ -73,7 +69,12 @@
 			'json'
 		)
 
+<<<<<<< HEAD
 		
+=======
+		//加入购物车按钮 提交 api   5
+		$("#but").click(function(){			
+>>>>>>> 90877c1a744509108db8515e32ba748dc9109415
 
 		})
 		//加入购物车按钮 提交 api   2
@@ -88,16 +89,13 @@
 // 			alert(goods_price)
 // 			alert(buy_num)
 // 			alert(goods_id1)
-			
 			$.post(
 				"http://second.zty77.com/cartadd",
 				{goods_name:goods_name,buy_num:buy_num,goods_price:goods_price,goods_id:goods_id1},
 				function(msg){
 					 alert(msg.error);
 					if(msg.error==0){
-						mui.alert(msg.msg,'添加成功','确定',function (e) {
-						   e.index
-						},'div')
+						alert('添加成功')
 						window.location.replace('cart.html');
 					}else{
 						mui.alert(msg.msg,'添加失败','确定',function (e) {
@@ -108,5 +106,7 @@
 				'json'
 			)
 		});
+	})
+</script>
 		
 </script>
