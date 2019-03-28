@@ -34,7 +34,7 @@
 						</button>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 						<button type="button" class="mui-btn mui-btn-warning" id="but">
 							加入购物车 <span class="mui-icon-extra mui-icon-extra-cart"></span>
@@ -49,7 +49,10 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script>
 	mui.init();
+	
 	$(function(){
+		var storage=window.localStorage;
+		var uid =  storage.uid;
 		//获取列表页面get请求的商品id
 		function GetQueryString(name)
 		{
@@ -59,14 +62,13 @@
 		}
 		
 		var goods_id = GetQueryString("goods_id");
-		var storage=window.localStorage;
-		var uid =  storage.uid;
+		
 		//通过post传给api
 		$.post(
 			"http://second.zty77.com/hb/goodsdetail",
-			{goods_id:goods_id,uid:uid},
+			{goods_id:goods_id},
 			function(msg){
-				
+				alert(111)
 				//api返回参数
 				if(msg.error==0){
 					goods_name=msg.data.goods_name
