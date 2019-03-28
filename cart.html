@@ -59,7 +59,7 @@
 				//加载购物车商品数据
 					 mui.ajax('http://second.zty77.com/cartinfo',{
 						data:{
-							id:uid
+							uid:uid
 						},
 						dataType:'json',//服务器返回json格式数据
 						type:'post',//HTTP请求类型
@@ -89,10 +89,10 @@
 				$('#pay').click(function(){
 					//循环获取商品价格
 					var total=$("#AllTotal").text();
-					
+					//alert(uid)
 					mui.ajax('http://second.zty77.com/order',{
 									data:{
-										uid:1,
+										uid:uid,
 										order_amount:total
 									},
 									async:true,
