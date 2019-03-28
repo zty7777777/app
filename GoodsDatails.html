@@ -29,6 +29,9 @@
 						<p style="text-align:;">浏览次数：<sapn id="look_count"></sapn></p>
 					</li>
 					<li align="right">
+						<button type="button"  class="mui-btn mui-btn-primary" id="collect">
+							加入收藏
+						</button>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -56,6 +59,8 @@
 		}
 		
 		var goods_id = GetQueryString("goods_id");
+		var storage=window.localStorage;
+		var uid =  storage.uid;
 		//通过post传给api
 		$.post(
 			"http://second.zty77.com/hb/goodsdetail",
@@ -107,6 +112,18 @@
 				'json'
 			)
 		});
+	
+		//加入收藏
+		$("#collect").click(function(){
+			$.post(
+				"http://second.zty77.com/hb/collect"
+				{goods_id:goods_id,uid:uid},
+				function(msg){
+					alert(msg);
+				}
+			)
+		})
+	
 	})
 </script>
 
