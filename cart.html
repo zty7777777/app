@@ -43,6 +43,12 @@
 		<script type="text/javascript">
 			mui.init()
 			$(function(){
+				//获取当前用户id
+				var storage=window.localStorage;
+				var token =  storage.token;
+				var uid =  storage.uid;
+				alert(uid);
+		
 				//加载购物车商品数据
 					 mui.ajax('http://second.zty77.com/cartinfo',{
 						data:{
