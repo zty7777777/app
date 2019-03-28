@@ -60,30 +60,53 @@
 			{goods_id:goods_id},
 			function(msg){
 				if(msg.error==0){
-					$("#channel").html("msg.goods_name")
+					goods_name=msg.data.goods_name
+					goods_price=msg.data.goods_price
+					buy_num=1
+					goods_id1=msg.data.goods_id
+					$("#channel").html("<span>"+msg.data.goods_name+"</span>")
 					$("#bill_no").html("1")
-					$("#total_fee").html("msg.goods_price")
-					$("#goods_id").val("msg.goods_id")
+					$("#total_fee").html("<span>"+msg.data.goods_price+"</span>")
+					$("#goods_id").val(msg.data.goods_id)
 				}
-			}
-		)
+			},
+			'json'
 		)
 
+		
+
+		})
+		//加入购物车按钮 提交 api   2
 
 		var name = $("#channel").text();
 		var num = $("#bill_no").text();
 		var price = $("#total_fee").text();
 		console.log(name)
+		//加入购物车按钮 提交 api   5
 		$("#but").click(function(){
+// 			alert(goods_name)
+// 			alert(goods_price)
+// 			alert(buy_num)
+// 			alert(goods_id1)
+			
 			$.post(
-				"http://second.zty77.com",
-				{name:goods_name,num:num,price:price},
+				"http://second.zty77.com/cartadd",
+				{goods_name:goods_name,buy_num:buy_num,goods_price:goods_price,goods_id:goods_id1},
 				function(msg){
-					alert(msg)
-				}
+					 alert(msg.error);
+					if(msg.error==0){
+						mui.alert(msg.msg,'添加成功','确定',function (e) {
+						   e.index
+						},'div')
+						window.location.replace('cart.html');
+					}else{
+						mui.alert(msg.msg,'添加失败','确定',function (e) {
+						   e.index
+						},'div')
+					}
+				},
+				'json'
 			)
 		});
 		
-		
-	})
 </script>
