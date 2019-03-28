@@ -80,10 +80,11 @@
 								//写入a字段
 								storage["token"]=msg.token;
 								storage["name"]=msg.name;
+								storage["uid"]=msg.uid;
 								storage["password"]=msg.password;
 								alert("登录成功")
 							}
-							window.location.replace("center.html")
+							window.location.replace("tabbar.html")
 						}else{
 							alert('账号或密码错误')
 						}

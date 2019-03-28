@@ -6,39 +6,75 @@
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="css/mui.min.css" rel="stylesheet" />
+		<link type="text/css" rel="stylesheet" href="css/base.css" />
+		<link type="text/css" rel="stylesheet" href="css/module.css"  />
 	</head>
 
 	<body>
-		<div class="mui-content">
-			<div class="mui-card">
-				<ul class="mui-table-view">	
-					 <li class="mui-table-view-cell">
-							<font>名称</font> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;        
-							<font>价格(￥)</font>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  
-							<font>购买数量</font>
-						</li>
-					 <li class="mui-table-view-cell" id="cartshow">
-						<font class="goods_name"></font> &nbsp;&nbsp;    
-						<font color="red" class="goods_price"></font>&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  
-								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<font  class="goods_num"></font>
-					</li>
-				
-					<!-- <li class="mui-table-view-cell mui-checkbox mui-left">
-						<input name="checkbox" type="checkbox">Item 7
-					</li>
-					<li class="mui-table-view-cell mui-checkbox mui-left">
-						<input name="checkbox" type="checkbox">Item 8
-					</li> -->
-					<li align="right">
-						<button type="button" class="mui-btn mui-btn-primary" style="align:right;" id="pay">
-							去结算
-						</button>
-					</li>
-				</ul>
-			</div>	
+		<div class="mui-content" id="content">
+			<div class="shopping">
+				<div class="shop-group-item">
+		<div class="shop-name">
+			<input type="checkbox" class="check goods-check shopCheck">
+			<h4><a href="#">苹果专卖店</a></h4>
+			<div class="coupons"><span>领券</span><em>|</em><span>编辑</span></div>
+		</div>
+		<ul>
+			<li>
+				<div class="shop-info">
+					<input type="checkbox" class="check goods-check goodsCheck">
+					<div class="shop-info-img"><a href="#"><img src="images/computer.jpg" /></a></div>
+					<div class="shop-info-text">
+						<h4>Apple MacBook Pro1 13.3英寸笔记本电脑 银色(i5处理器)</h4>
+						<div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span></div>
+						<div class="shop-price">
+							<div class="shop-pices">￥<b class="price">100.00</b></div>
+							<div class="shop-arithmetic">
+								<a href="javascript:;" class="minus">-</a>
+								<span class="num" >1</span>
+								<a href="javascript:;" class="plus">+</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="shop-info">
+					<input type="checkbox" class="check goods-check goodsCheck">
+					<div class="shop-info-img"><a href="#"><img src="images/computer.jpg" /></a></div>
+					<div class="shop-info-text">
+						<h4>Apple MacBook Pro1 13.3英寸笔记本电脑 银色(i5处理器)</h4>
+						<div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span></div>
+						<div class="shop-price">
+							<div class="shop-pices">￥<b class="price">100.00</b></div>
+							<div class="shop-arithmetic">
+								<a href="javascript:;" class="minus">-</a>
+								<span class="num" >1</span>
+								<a href="javascript:;" class="plus">+</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+
+		</ul>
+
+
+		<div class="shopPrice">本店总计：￥<span class="shop-total-amount ShopTotal">0.00</span></div>
+	</div>
+				<div class="payment-bar" style="margin-bottom: 480px;">
+					<div class="all-checkbox"><input type="checkbox" class="check goods-check" id="AllCheck">全选</div>
+					<div class="shop-total">
+						<strong>总价：<i class="total" id="AllTotal">0.00</i></strong>
+						<span>减免：123.00</span>
+					</div>
+					<a href="#" class="settlement">结算</a>
+				</div>
+			</div>
+
 		</div>
 		<script src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/shopping.js"></script>
 		<script src="js/mui.js"></script>
 		<script type="text/javascript">
 			mui.init()
@@ -47,12 +83,18 @@
 				var storage=window.localStorage;
 				var token =  storage.token;
 				var uid =  storage.uid;
-				alert(uid);
-		
+				//alert(typeof(uid));
+				//判断登录
+				/* if(typeof(uid)=='undefined'){
+					mui.alert('你还未登录，请先登录','去登录','btnValue',function (e) {
+					   e.index
+					},'div')	
+					$("#content").html("<a href='index.html'>登录</a>")
+				} */
 				//加载购物车商品数据
 					 mui.ajax('http://second.zty77.com/cartinfo',{
 						data:{
-							id:1
+							id:uid
 						},
 						dataType:'json',//服务器返回json格式数据
 						type:'post',//HTTP请求类型
