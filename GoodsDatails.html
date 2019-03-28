@@ -29,12 +29,12 @@
 						<p style="text-align:;">浏览次数：<sapn id="look_count"></sapn></p>
 					</li>
 					<li align="right">
-						<button type="button"  class="mui-btn mui-btn-primary" class="collect">
+						<button type="button"  class="mui-btn mui-btn-primary" id="collect">
 							加入收藏
 						</button>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						
 
 						<button type="button" class="mui-btn mui-btn-warning" id="but">
 							加入购物车 <span class="mui-icon-extra mui-icon-extra-cart"></span>
@@ -64,7 +64,7 @@
 		//通过post传给api
 		$.post(
 			"http://second.zty77.com/hb/goodsdetail",
-			{goods_id:goods_id},
+			{goods_id:goods_id,uid:uid},
 			function(msg){
 				
 				//api返回参数
@@ -108,7 +108,8 @@
 		});
 	
 		//加入收藏
-		$(".collect").click(function(){
+		$("#collect").click(function(){
+			
 			$.post(
 				"http://second.zty77.com/hb/collect",
 				{goods_id:goods_id,uid:uid},
@@ -120,7 +121,8 @@
 						alert("已收藏")
 					}
 				}
-			)
+			),
+			'json'
 		})
 	
 	})
