@@ -16,59 +16,24 @@
 				<div class="shop-group-item">
 		<div class="shop-name">
 			<input type="checkbox" class="check goods-check shopCheck">
-			<h4><a href="#">苹果专卖店</a></h4>
+			<h4><a href="#">喵喵专卖店</a></h4>
 			<div class="coupons"><span>领券</span><em>|</em><span>编辑</span></div>
 		</div>
 		<ul>
-			<li>
-				<div class="shop-info">
-					<input type="checkbox" class="check goods-check goodsCheck">
-					<div class="shop-info-img"><a href="#"><img src="images/computer.jpg" /></a></div>
-					<div class="shop-info-text">
-						<h4>Apple MacBook Pro1 13.3英寸笔记本电脑 银色(i5处理器)</h4>
-						<div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span></div>
-						<div class="shop-price">
-							<div class="shop-pices">￥<b class="price">100.00</b></div>
-							<div class="shop-arithmetic">
-								<a href="javascript:;" class="minus">-</a>
-								<span class="num" >1</span>
-								<a href="javascript:;" class="plus">+</a>
-							</div>
-						</div>
-					</div>
-				</div>
+			<li id="cartshow">	
 			</li>
-			<li>
-				<div class="shop-info">
-					<input type="checkbox" class="check goods-check goodsCheck">
-					<div class="shop-info-img"><a href="#"><img src="images/computer.jpg" /></a></div>
-					<div class="shop-info-text">
-						<h4>Apple MacBook Pro1 13.3英寸笔记本电脑 银色(i5处理器)</h4>
-						<div class="shop-brief"><span>重量:3.3kg</span><span>颜色:标配版</span></div>
-						<div class="shop-price">
-							<div class="shop-pices">￥<b class="price">100.00</b></div>
-							<div class="shop-arithmetic">
-								<a href="javascript:;" class="minus">-</a>
-								<span class="num" >1</span>
-								<a href="javascript:;" class="plus">+</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</li>
-
 		</ul>
 
 
 		<div class="shopPrice">本店总计：￥<span class="shop-total-amount ShopTotal">0.00</span></div>
-	</div>
-				<div class="payment-bar" style="margin-bottom: 480px;">
+	   </div>
+				<div class="payment-bar" style="position: relative;">
 					<div class="all-checkbox"><input type="checkbox" class="check goods-check" id="AllCheck">全选</div>
 					<div class="shop-total">
 						<strong>总价：<i class="total" id="AllTotal">0.00</i></strong>
-						<span>减免：123.00</span>
+						<span>减免：0.00</span>
 					</div>
-					<a href="#" class="settlement">结算</a>
+					<a href="#" class="settlement" id="pay">结算</a>
 				</div>
 			</div>
 
@@ -102,13 +67,14 @@
 						success:function(msg){
 							var _li='';
 							for(var i in msg) {
-								_li +="<li class='mui-table-view-cell cartshow'>"+
-									"<font class='goods_name'>"+msg[i]['goods_name']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-									"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-									"<font color='red' class='goods_price'>"+msg[i]['goods_price']+"</font>"+"&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;"+ 
-									"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+ 
-									"<font  class='buy_num'>"+msg[i]['buy_num']+"</font>" +
-									"</li>"
+								_li +="<li><div class='shop-info'><input type='checkbox' class='check goods-check goodsCheck'>" +
+									"<div class='shop-info-img'><a href='#'><img src='images/computer.jpg' /></a></div>" +
+									"<div class='shop-info-text'><h4>"+msg[i]['goods_name']+"</h4>"+
+									"<div class='shop-brief'><span>颜色:标配版</span><span>版本:13.3英寸</span></div>"+
+									"<div class='shop-price'><div class='shop-pices'>￥<b class='price'>"+msg[i]['goods_price']+"</b></div>"+
+									"<div class='shop-arithmetic'><a href='javascript' class='minus'>-</a>" +
+									"<span class='num' >"+msg[i]['buy_num']+"</span><a href='javascript' class='plus'>+</a>" +
+									"</div></div></div></div></li>"
 							}
 							// alert(_tr);
 							$('#cartshow').html(_li)
@@ -122,17 +88,8 @@
 				//去结算
 				$('#pay').click(function(){
 					//循环获取商品价格
-					total=0;
-					num=0;
-					$('.cartshow').each(function(index){
-						
-							var subtotal = $(this).find("font[class='goods_price']").text();
-							var n = parseInt($(this).find("font[class='buy_num']").text());
-							subtotal = parseInt(subtotal)*n//总计
-							total+=subtotal;
-
-					});
-					//alert(total);
+					var total=$("#AllTotal").text();
+					
 					mui.ajax('http://second.zty77.com/order',{
 									data:{
 										uid:1,
