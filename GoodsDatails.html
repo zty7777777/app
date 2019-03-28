@@ -67,7 +67,7 @@
 			"http://second.zty77.com/hb/goodsdetail",
 			{goods_id:goods_id},
 			function(msg){
-				alert(111)
+				//alert(111)
 				//api返回参数
 				if(msg.error==0){
 					goods_name=msg.data.goods_name
@@ -93,7 +93,7 @@
 // 			alert(goods_id1)
 			$.post(
 				"http://second.zty77.com/cartadd",
-				{goods_name:goods_name,buy_num:buy_num,goods_price:goods_price,goods_id:goods_id1},
+				{goods_name:goods_name,buy_num:buy_num,goods_price:goods_price,goods_id:goods_id1,uid:uid},
 				function(msg){
 					// alert(msg.error);
 					if(msg.error==0){

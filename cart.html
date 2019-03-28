@@ -48,7 +48,7 @@
 				var storage=window.localStorage;
 				var token =  storage.token;
 				var uid =  storage.uid;
-				//alert(typeof(uid));
+				//alert(uid);
 				//判断登录
 				/* if(typeof(uid)=='undefined'){
 					mui.alert('你还未登录，请先登录','去登录','btnValue',function (e) {
@@ -80,7 +80,7 @@
 							$('#cartshow').html(_li)
 						},
 						error:function(xhr,type,errorThrown){
-							alert(type)
+							//alert(type)
 						}
 					}) ; 
 	
@@ -89,10 +89,10 @@
 				$('#pay').click(function(){
 					//循环获取商品价格
 					var total=$("#AllTotal").text();
-					
+					//alert(uid)
 					mui.ajax('http://second.zty77.com/order',{
 									data:{
-										uid:1,
+										uid:uid,
 										order_amount:total
 									},
 									async:true,
