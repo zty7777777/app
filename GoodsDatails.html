@@ -113,15 +113,15 @@
 				"http://second.zty77.com/hb/collect",
 				{goods_id:goods_id,uid:uid},
 				function(msg){
+					
 					if(msg.error==0){
 						alert("收藏成功")
-						
 					}else{
-						alert("已收藏")
+						alert("此商品已收藏过了呀~~")
 					}
-				}
-			),
-			'json'
+				},
+				'json'
+			)
 		})
 	
 	})
