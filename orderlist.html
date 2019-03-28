@@ -33,10 +33,12 @@
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script type="text/javascript">
 			$(function(){
+				var storage=window.localStorage;
+				var uid =  storage.uid;
 				mui.ajax({
 					url:'http://second.zty77.com/orderinfo',
 					data:{
-						uid:1
+						uid:uid
 					},
 					dataType:'json',
 					type:'post',
