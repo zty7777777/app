@@ -20,8 +20,7 @@
 			<div class="coupons"><span>领券</span><em>|</em><span>编辑</span></div>
 		</div>
 		<ul>
-			<li id="cartshow">
-				
+			<li id="cartshow">	
 			</li>
 		</ul>
 
@@ -32,9 +31,9 @@
 					<div class="all-checkbox"><input type="checkbox" class="check goods-check" id="AllCheck">全选</div>
 					<div class="shop-total">
 						<strong>总价：<i class="total" id="AllTotal">0.00</i></strong>
-						<span>减免：123.00</span>
+						<span>减免：0.00</span>
 					</div>
-					<a href="#" class="settlement">结算</a>
+					<a href="#" class="settlement" id="pay">结算</a>
 				</div>
 			</div>
 
@@ -71,7 +70,7 @@
 								_li +="<li><div class='shop-info'><input type='checkbox' class='check goods-check goodsCheck'>" +
 									"<div class='shop-info-img'><a href='#'><img src='images/computer.jpg' /></a></div>" +
 									"<div class='shop-info-text'><h4>"+msg[i]['goods_name']+"</h4>"+
-									"<div class='shop-brief'><span>"+重量:3.3kg+"</span><span>"+颜色:标配版+"</span></div>"+
+									"<div class='shop-brief'><span>颜色:标配版</span><span>版本:13.3英寸</span></div>"+
 									"<div class='shop-price'><div class='shop-pices'>￥<b class='price'>"+msg[i]['goods_price']+"</b></div>"+
 									"<div class='shop-arithmetic'><a href='javascript' class='minus'>-</a>" +
 									"<span class='num' >"+msg[i]['buy_num']+"</span><a href='javascript' class='plus'>+</a>" +
@@ -89,17 +88,8 @@
 				//去结算
 				$('#pay').click(function(){
 					//循环获取商品价格
-					total=0;
-					num=0;
-					$('.cartshow').each(function(index){
-						
-							var subtotal = $(this).find("font[class='goods_price']").text();
-							var n = parseInt($(this).find("font[class='buy_num']").text());
-							subtotal = parseInt(subtotal)*n//总计
-							total+=subtotal;
-
-					});
-					//alert(total);
+					var total=$("#AllTotal").text();
+					
 					mui.ajax('http://second.zty77.com/order',{
 									data:{
 										uid:1,
