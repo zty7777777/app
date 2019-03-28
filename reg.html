@@ -97,10 +97,9 @@
 						"http://second.zty77.com/hb/reg",
 						{name:name,password:password,email:email},
 						function(msg){
-							
 							if(msg.error==0){
 								mui.alert('注册成功')
-								window.location.replace("center.html")
+								window.location.replace("tabbar.html")
 							}else{
 								mui.alert('注册失败')
 							}
