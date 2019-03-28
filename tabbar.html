@@ -10,7 +10,6 @@
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<!--标准mui.css-->
 		<link rel="stylesheet" href="css/mui.min.css">
-		<link href="css/goods.css" rel="stylesheet">
 		<!--App自定义的css-->
 		
 		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
@@ -81,7 +80,7 @@
 		<div class="mui-content">
 			<div id="tabbar" class="mui-control-content mui-active">
 				<div align="center">
-					<iframe align="center" width="100%" height="100%" src="slider.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+					<img id="img1"  width="100%" src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1553659649&di=7cfd9079cdfac0bf8cf7ec9d40976e30&src=http://img1.2345.com/duoteimg/zixunImg/local/2017/04/13/14920525943647.jpg"/>
 				</div>
 				<div id="goods">
 						<iframe align="center" width="100%" height="1000" src="goods.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
@@ -247,6 +246,14 @@
 					</a>
 				</li>
 			</ul>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li id="switch" class="mui-table-view-cell">
+						定时轮播
+						<div class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
 			<ul class="mui-table-view" style="margin-top: 25px;">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
@@ -256,7 +263,7 @@
 			</ul>
 			<ul class="mui-table-view" style="margin-top: 25px;">
 				<li class="mui-table-view-cell">
-					<a style="text-align: center;color: #FF3B30;">
+					<a style="text-align: center;color: #FF3B30;" id="quit">
 						退出登录
 					</a>
 				</li>
@@ -283,6 +290,11 @@
 			}
 			$('#index').click(function(){
 				window.location.replace("tabbar.html")
+			})
+			$('#quit').click(function(){
+				var storage=window.localStorage;
+				storage.clear();
+				window.location.replace("index.html")
 			})
 		})
 	</script>
