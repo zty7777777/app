@@ -48,7 +48,6 @@
 <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
 <script>
 	mui.init();
-	
 	$(function(){
 		var storage=window.localStorage;
 		var uid =  storage.uid;
@@ -62,13 +61,11 @@
 		
 		var goods_id = GetQueryString("goods_id");
 		
-		//通过post传给api
+		//通过post传给api 获取商品详情信息
 		$.post(
 			"http://second.zty77.com/hb/goodsdetail",
 			{goods_id:goods_id},
 			function(msg){
-
-
 				//alert(111)
 
 				//api返回参数
@@ -90,45 +87,48 @@
 
 		//加入购物车按钮 提交 api   5
 		$("#but").click(function(){
-// 			alert(goods_name)
-// 			alert(goods_price)
-// 			alert(buy_num)
-// 			alert(goods_id1)
-			$.post(
-				"http://second.zty77.com/cartadd",
-				{goods_name:goods_name,buy_num:buy_num,goods_price:goods_price,goods_id:goods_id1,uid:uid},
-				function(msg){
-					// alert(msg.error);
-					if(msg.error==0){
-						alert('添加成功')
-					}else{
-						mui.alert(msg.msg,'添加失败','确定',function (e) {
-						   e.index
-						},'div')
-					}
-				},
-				'json'
-			)
+			if (typeof(uid)=="undefined") {
+				alert("您还未登录，请先登录")
+				
+			}else{
+				$.post(
+					"http://second.zty77.com/cartadd",
+					{goods_name:goods_name,buy_num:buy_num,goods_price:goods_price,goods_id:goods_id1,uid:uid},
+					function(msg){
+						if(msg.error==0){
+							alert('添加成功')
+						}else{
+							mui.alert(msg.msg,'添加失败','确定',function (e) {
+							   e.index
+							},'div')
+						}
+					},
+					'json'
+				)
+			}
+			
 		});
 	
 		//加入收藏
 		$("#collect").click(function(){
-			
-			$.post(
-				"http://second.zty77.com/hb/collect",
-				{goods_id:goods_id,uid:uid},
-				function(msg){
-					
-					if(msg.error==0){
-						alert("收藏成功")
-					}else{
-						alert("此商品已收藏过了呀~~")
-					}
-				},
-				'json'
-			)
+			if(typeof(uid)=="undefined"){
+				alert("您还未登录，请先登录")
+				
+			}else{
+				$.post(
+					"http://second.zty77.com/hb/collect",
+					{goods_id:goods_id,uid:uid},
+					function(msg){
+						if(msg.error==0){
+							alert("收藏成功")
+						}else{
+							alert("此商品已收藏过了呀~~")
+						}
+					},
+					'json'
+				)
+			}
 		})
-	
 	})
 </script>
 

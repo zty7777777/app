@@ -238,7 +238,19 @@
 			</ul>
 			</div>
 			<div id="tabbar-with-map" class="mui-control-content">
-				<div class="title"></div>
+				<br>
+					<ul class="mui-table-view mui-table-view-chevron" id="aaa">
+						<li class="mui-table-view-cell mui-media">
+							<a class="mui-navigate-right" href="#account">
+								<img class="mui-media-object mui-pull-left head-img" id="head-img" src="images/logo.png">
+								<div class="mui-media-body">
+									<b id="big">Hello MUI</b>
+									<p class='mui-ellipsis' id="small">账号:hellomui</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				<br>
 				<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
@@ -256,14 +268,6 @@
 					</a>
 				</li>
 			</ul>
-				<ul class="mui-table-view mui-table-view-chevron">
-					<li id="switch" class="mui-table-view-cell">
-						定时轮播
-						<div class="mui-switch">
-							<div class="mui-switch-handle"></div>
-						</div>
-					</li>
-				</ul>
 			<ul class="mui-table-view" style="margin-top: 25px;">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
@@ -295,13 +299,21 @@
 			if(typeof(name)=="undefined"){
 				$('#image').html("<img width='60' src='images/60x60.gif'/>")
 				$('#name').html("<a href='index.html'>点击登录</a>")
+				$('#big').html("<b><a href='index.html'>点击登录</a></b>")
+				$('#quit').html("<a style='text-align: center;color: #FF3B30;' id='quit'>点击登录</a>")
+				$('#small').html("")
 			}else{
+				$('#big').html("<b>"+name+"</b>")
+				$('#small').html("<p>账号:"+name+"</p>")
 				$('#name').html("<p>"+name+"</p>")
 			}
+			$('#homepage').on('click','#homepage',function(){
+				window.location.replace("homepage.html")
+			})
 			$('#index').click(function(){
 				window.location.replace("tabbar.html")
 			})
-			$('#quit').click(function(){
+			$('#quit').on('click','#quit',function(){
 				var storage=window.localStorage;
 				storage.clear();
 				window.location.replace("index.html")
@@ -335,6 +347,15 @@
 				}
 			})
 			$('#image').click(function(){
+				var storage=window.localStorage;
+				var name=storage.name;
+				if(typeof(name)=="undefined"){
+					window.location.replace("index.html")
+				}else{
+					 window.location.replace("homepage.html") 
+				}
+			})
+			$('#aaa').click(function(){
 				var storage=window.localStorage;
 				var name=storage.name;
 				if(typeof(name)=="undefined"){
