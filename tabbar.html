@@ -334,6 +334,15 @@
 					 window.location.replace("pwd.html") 
 				}
 			})
+			$('#image').click(function(){
+				var storage=window.localStorage;
+				var name=storage.name;
+				if(typeof(name)=="undefined"){
+					window.location.replace("index.html")
+				}else{
+					 window.location.replace("homepage.html") 
+				}
+			})
 		})
 	</script>
 </html>
