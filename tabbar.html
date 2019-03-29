@@ -318,6 +318,11 @@
 				storage.clear();
 				window.location.replace("index.html")
 			})
+			$('#quit').click(function(){
+				var storage=window.localStorage;
+				storage.clear();
+				window.location.replace("index.html")
+			})
 			$('#order').click(function(){
 				var storage=window.localStorage;
 				var name=storage.name;
