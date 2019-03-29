@@ -98,8 +98,14 @@
 						{name:name,password:password,email:email},
 						function(msg){
 							if(msg.error==0){
+								/* var storage=window.localStorage;
+								//写入a字段
+								storage["token"]=msg.token;
+								storage["name"]=msg.name;
+								storage["uid"]=msg.uid;
+								storage["password"]=msg.password; */
 								mui.alert('注册成功')
-								window.location.replace("tabbar.html")
+								window.location.replace("index.html")
 							}else{
 								mui.alert('注册失败')
 							}
