@@ -105,7 +105,8 @@
 				    <div class="mui-content-padded">
 				        <button type="button" id="order" class="mui-btn mui-btn-warning mui-btn-block mui-btn-outlined">我 的 订 单</button>
 				        <button type="button" id="collect" class="mui-btn mui-btn-danger mui-btn-block mui-btn-outlined">我 的 收 藏</button>
-				    </div>
+						<button type="button" id="updpwd" class="mui-btn mui-btn-danger mui-btn-block mui-btn-outlined">修 改 密 码</button>
+					</div>
 				</div>
 				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
 				<li class="mui-table-view-cell">
@@ -237,7 +238,7 @@
 			</ul>
 			</div>
 			<div id="tabbar-with-map" class="mui-control-content">
-				<div class="title">这是div模式选项卡中的第4个子页面，该页面展示一个常见的设置示例.</div>
+				<div class="title"></div>
 				<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					<a class="mui-navigate-right">
@@ -322,6 +323,24 @@
 				}else{
 					mui.alert('代码开发中，☺')
 					/* window.location.replace("orderlist.html") */
+				}
+			})
+			$('#updpwd').click(function(){
+				var storage=window.localStorage;
+				var name=storage.name;
+				if(typeof(name)=="undefined"){
+					window.location.replace("index.html")
+				}else{
+					 window.location.replace("pwd.html") 
+				}
+			})
+			$('#image').click(function(){
+				var storage=window.localStorage;
+				var name=storage.name;
+				if(typeof(name)=="undefined"){
+					window.location.replace("index.html")
+				}else{
+					 window.location.replace("homepage.html") 
 				}
 			})
 		})
