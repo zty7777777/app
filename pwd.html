@@ -5,8 +5,12 @@
 		<meta charset="utf-8">
 		<title></title>
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link href="css/mui.css" rel="stylesheet" />
-		
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style>
+			li{
+				list-style: none;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -14,17 +18,18 @@
 		<script type="text/javascript">
 			mui.init()
 		</script>
-		<div class="title">
-			<a href="index.html" onclick="findPwdVerify();" class="next"><<<<<修改密码</a>
-		</div>
-		
-		
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" >修改密码</h1>
+			<a href="tabbar.html" style="float: right;padding-top: 13px;">刷新</a>
+		</header>
+		<br>
+		<br>
 		<ul class="login-info">
-		    <li><input type="number" id="psd" name="psd"  required="true" check="psd" class="txt" placeholder="请输入旧密码"></li>
-		   <li><input type="number" id="psd1" name="psd1"  required="true" check="psd1" class="txt" placeholder="请输入新密码"></li>
-		   <li><input type="number" id="psd2" name="psd2"  required="true" check="psd2" class="txt" placeholder="请再次输入新密码"></li>
+		    <li><input type="text" id="psd" placeholder="请输入旧密码"></li>
+		   <li><input type="text" id="psd1" placeholder="请输入新密码"></li>
+		   <li><input type="text" id="psd2" placeholder="请再次输入新密码"></li>
 		</ul>
-		
 		<div class="mui-button-row">
 				<button type="button" id="login" class="mui-btn mui-btn-primary" >确认</button>
 				<!-- <a href="reg.html"><button type="button" class="mui-btn mui-btn-danger" >注册</button></a> -->
@@ -40,6 +45,8 @@
 
 <script>
 	$('#login').click(function(){
+		var storage=window.localStorage;
+		var uid=storage.uid;
 		var psd=$('#psd').val();
 		var psd1=$('#psd1').val();
 		var psd2=$('#psd2').val();
@@ -59,7 +66,7 @@
 			alert("输入密码与新密码不符");
 			return false;
 		}
-			mui.ajax('http://second.zty77.com/hb/login',{
+			 mui.ajax('http://second.zty77.com/updpwd',{
 						data:{
 						    id:uid,
 							psd:psd,
@@ -70,19 +77,20 @@
 						type:'post',//HTTP请求类型
 						timeout:10000,//超时时间设置为10秒；
 					//	headers:{'Content-Type':'application/x-www-form-urIencode'},	              
-						success:function(msg){ 
+						success:function(msg){
 							//alert(msg.error);
 							if(msg.error==0){
 									if(!window.localStorage){
 										alert("浏览器支持localstorage");
 									}else{
 										var storage=window.localStorage;
-										
-										alert("登录成功")
+										alert("修改成功")
+										window.location.replace("tabbar.html")
 									}
-									window.location.replace("tabbar.html")
+								}else if(msg.error==507){
+									mui.alert('新密码不能与旧密码一致')
 								}else{
-									alert('账号或密码错误')
+									mui.alert('旧密码错误')
 								}
 						}
 					});
