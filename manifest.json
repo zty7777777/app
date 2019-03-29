@@ -1,6 +1,6 @@
 {
     "@platforms" : [ "android", "iPhone", "iPad" ],
-    "id" : "H544F0050", /*必选，应用的标识*/
+    "id" : "H59852B9D", /*必选，应用的标识*/
     "name" : "second", /*必选，应用名称*/
     "version" : {
         "name" : "1.0", /*必选，版本名称*/
@@ -126,7 +126,7 @@
                         "spotlight" : "unpackage/res/icons/40x40.png",
                         "spotlight@2x" : "unpackage/res/icons/80x80.png"
                     },
-                    "appstore" : ""
+                    "appstore" : "C:/Users/原朝/Desktop/u=1232527725,2174934674&fm=26&gp=0.png"
                 },
                 "android" : {
                     "mdpi" : "unpackage/res/icons/48x48.png", /*必选，48x48，普通屏程序图标*/
