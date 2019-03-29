@@ -126,7 +126,7 @@
                         "spotlight" : "unpackage/res/icons/40x40.png",
                         "spotlight@2x" : "unpackage/res/icons/80x80.png"
                     },
-                    "appstore" : ""
+                    "appstore" : "C:/Users/zty/Desktop/u=1232527725,2174934674&fm=26&gp=0.png"
                 },
                 "android" : {
                     "mdpi" : "unpackage/res/icons/48x48.png", /*必选，48x48，普通屏程序图标*/
