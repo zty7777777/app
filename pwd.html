@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		
+	</head>
+
+	<body>
+		<script src="js/mui.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<div class="title">
+			<a href="index.html" onclick="findPwdVerify();" class="next"><<<<<修改密码</a>
+		</div>
+		
+		
+		<ul class="login-info">
+		    <li><input type="number" id="psd" name="psd"  required="true" check="psd" class="txt" placeholder="请输入旧密码"></li>
+		   <li><input type="number" id="psd1" name="psd1"  required="true" check="psd1" class="txt" placeholder="请输入新密码"></li>
+		   <li><input type="number" id="psd2" name="psd2"  required="true" check="psd2" class="txt" placeholder="请再次输入新密码"></li>
+		</ul>
+		
+		<div class="mui-button-row">
+				<button type="button" id="login" class="mui-btn mui-btn-primary" >确认</button>
+				<!-- <a href="reg.html"><button type="button" class="mui-btn mui-btn-danger" >注册</button></a> -->
+		<!-- onclick="reg()" -->
+		</div>
+		
+			
+	</body>
+
+</html>
+
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+<script>
+	$('#login').click(function(){
+		var psd=$('#psd').val();
+		var psd1=$('#psd1').val();
+		var psd2=$('#psd2').val();
+		if(psd==""){
+			alert("密码不能为空");
+			return false;
+		}
+		if(psd1==""){
+			alert("新密码不能为空");
+			return false;
+		}
+		if(psd2==""){
+			alert("确认密码不能为空");
+			return false;
+		}
+		if(psd1 != psd2){
+			alert("输入密码与新密码不符");
+			return false;
+		}
+			mui.ajax('http://second.zty77.com/hb/login',{
+						data:{
+						    id:uid,
+							psd:psd,
+							psd1:psd1,
+							psd2:psd2
+						},
+						dataType:'json',//服务器返回json格式数据
+						type:'post',//HTTP请求类型
+						timeout:10000,//超时时间设置为10秒；
+					//	headers:{'Content-Type':'application/x-www-form-urIencode'},	              
+						success:function(msg){ 
+							//alert(msg.error);
+							if(msg.error==0){
+									if(!window.localStorage){
+										alert("浏览器支持localstorage");
+									}else{
+										var storage=window.localStorage;
+										
+										alert("登录成功")
+									}
+									window.location.replace("tabbar.html")
+								}else{
+									alert('账号或密码错误')
+								}
+						}
+					});
+					
+	})
+</script>
