@@ -126,11 +126,7 @@
                         "spotlight" : "unpackage/res/icons/40x40.png",
                         "spotlight@2x" : "unpackage/res/icons/80x80.png"
                     },
-<<<<<<< HEAD
-                    "appstore" : "C:/Users/zty/Desktop/u=1232527725,2174934674&fm=26&gp=0.png"
-=======
-                    "appstore" : "C:/Users/原朝/Desktop/u=1232527725,2174934674&fm=26&gp=0.png"
->>>>>>> 68120e515e797823de6135764a9fc4f34d9faab5
+                    "appstore" : ""
                 },
                 "android" : {
                     "mdpi" : "unpackage/res/icons/48x48.png", /*必选，48x48，普通屏程序图标*/
@@ -809,3 +805,5 @@
         }
     }
 }
+
+
