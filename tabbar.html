@@ -296,6 +296,7 @@
 		$(function(){
 			var storage=window.localStorage;
 			var name=storage.name
+			var uid=storage.uid
 			if(typeof(name)=="undefined"){
 				$('#image').html("<img width='60' src='images/60x60.gif'/>")
 				$('#name').html("<a href='index.html'>点击登录</a>")
@@ -319,6 +320,13 @@
 				window.location.replace("index.html")
 			})
 			$('#quit').click(function(){
+				$.post(
+					"http://second.zty77.com/hb/quit",
+					{uid:uid},
+					function(msg){
+						
+					}
+				)
 				var storage=window.localStorage;
 				storage.clear();
 				window.location.replace("index.html")
