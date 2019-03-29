@@ -8,30 +8,28 @@
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
-		<link href="css/mui.css" rel="stylesheet" />
 		<link href="css/goods.css" rel="stylesheet">
+		<link href="css/mui.css" rel="stylesheet" />
 		<link href="css/mui.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title" >商品列表页</h1>
-		</header>
 		</div>
 		<!-- <hr><hr><hr><hr> -->
 		<div class="dis">
 			<form action="">
-				<table border="1" class="list">
+				<table border="1" class="list" style="width:100%">
 					<thead>
-					<tr class="mui-table-view">
+					<tr class="mui-table-view" align="center">
 						<td class="mui-table-view-cell">商品名称</td>
 						<td class="mui-table-view-cell">价格</td>
 						<td class="mui-table-view-cell">操作</td>
+						<td class="mui-table-view-cell">点评</td>
 					</tr>
 					</thead>
 					<tbody id="head">
 					<tr>
+						<td></td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -58,6 +56,7 @@
 							"<td class='mui-table-view-cell'>"+msg[i]['goods_name']+"</td>" +
 							"<td class='mui-table-view-cell'>"+msg[i]['goods_price']+"</td>" +
 							"<td class='mui-table-view-cell'><a href='GoodsDatails.html?goods_id="+msg[i]['goods_id']+"'>详情页</a></td>" +
+							"<td class='mui-table-view-cell'><button type='button' id='goods_zan' goods_id='"+msg[i]['goods_id']+"' class='goods_zan'>点赞</button></td>" +
 							"</tr>"
 					}
 					// alert(_tr);
@@ -67,6 +66,44 @@
 					//异常处理
 					alert(type);
 				}
+			});
+			$(document).on('click','.goods_zan',function(){
+				var storage=window.localStorage;
+				var uid =  storage.uid;
+				var _this=$(this);
+				var goods_id=_this.attr('goods_id');
+				// alert(uid);
+				mui.ajax({
+					url:'http://second.zty77.com/hb/zan',
+					data:{
+						goods_id:goods_id,
+						uid:uid
+					},
+					dataType:'json',
+					type:'post',
+					timeout:10000,
+					success:function(data){
+						// if(data.errno==0){
+						//服务器返回响应,根据响应结果,分析是否登录成功
+						// alert(data.error);
+						if(data.error==5366){
+							alert('您已点赞');
+// 							_yi="<button type='button'>您已点赞</button>";
+// 							$('#goods_zan').html(_yi);
+						}else if(data.error==0){
+							alert('谢谢您的支持');
+// 							_er="<button type='button' goods_id='"+msg[i]['goods_id']+"' class='goods_zan'>您已点赞</button>";
+// 							$('#head').html(_er);
+						}else{
+							// alert('');
+						}
+					},
+					error:function(xhr,type,errorThrown){
+						// alert(2);
+						//异常处理
+						alert(type);
+					}
+				})
 			})
 		});
 	</script>

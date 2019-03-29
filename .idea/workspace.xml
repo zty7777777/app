@@ -164,6 +164,8 @@
       <change beforePath="$PROJECT_DIR$/orderlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/orderlist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/orderlist2.html" beforeDir="false" afterPath="$PROJECT_DIR$/orderlist2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pay.html" beforeDir="false" afterPath="$PROJECT_DIR$/pay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/slider.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tabbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/tabbar.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -198,8 +200,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-976">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="-1033">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -207,8 +209,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GoodsDatails.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-266">
-              <caret line="52" column="64" lean-forward="true" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
+            <state relative-caret-position="-19">
+              <caret line="55" column="64" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -281,15 +283,15 @@
       <option name="presentableId" value="Default" />
       <updated>1553587302586</updated>
       <workItem from="1553587304776" duration="1215000" />
-      <workItem from="1553733363541" duration="624000" />
+      <workItem from="1553733363541" duration="1333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1839000" />
+    <option name="totallyTimeSpent" value="2548000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13739946" />
@@ -329,15 +331,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-976">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="-1033">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GoodsDatails.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-266">
-          <caret line="52" column="64" lean-forward="true" selection-start-line="52" selection-start-column="64" selection-end-line="52" selection-end-column="64" />
+        <state relative-caret-position="-19">
+          <caret line="55" column="64" selection-start-line="55" selection-start-column="64" selection-end-line="55" selection-end-column="64" />
         </state>
       </provider>
     </entry>

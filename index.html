@@ -9,15 +9,20 @@
    <!-- <script type="text/javascript" charset="utf-8">
       	mui.init();
     </script> -->
-
-</head>
-<body>
-	<script src="js/mui.min.js"></script>
+<script src="js/mui.min.js"></script>
 
 	<script type="text/javascript" charset="utf-8">
 			mui.init();
 	</script>
-
+</head>
+<body>
+	<div>
+	<header class="mui-bar mui-bar-nav">
+		<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		<h1 class="mui-title">登录</h1>
+	</header>
+	</div><br><br><br>
+<div>
 <form class="mui-input-group">
     <div class="mui-input-row">
         <label>用户名</label>
@@ -27,12 +32,20 @@
         <label>密码</label>
         <input type="password" value="111111" class="mui-input-password" placeholder="请输入密码">
     </div>
+		
     <div class="mui-button-row">
         <button type="button" id="login" class="mui-btn mui-btn-primary" >登录</button>
-        <a href="reg.html"><button type="button" class="mui-btn mui-btn-danger" >注册</button></a>
+        <!-- <a href="reg.html"><button type="button" class="mui-btn mui-btn-danger" >注册</button></a> -->
 		<!-- onclick="reg()" -->
     </div>
+		
+		<div class="reg-landing" style="margin-left: 100px;">
+				<a href="reg.html">立即注册</a>
+				||
+				<a href="pwd.html">?忘记密码</a>
+		</div>
 </form>
+</div>
 </body>
 </html>
 
@@ -73,12 +86,18 @@
 								var storage=window.localStorage;
 								//写入a字段
 								storage["token"]=msg.token;
+
 								storage["name"]=msg.name;
 								storage["password"]=msg.password;
 								storage["uid"]=msg.password;
+
+								storage["name"]=msg.name;
+								storage["uid"]=msg.uid;
+								storage["password"]=msg.password;
+
 								alert("登录成功")
 							}
-							window.location.replace("center.html")
+							window.location.replace("tabbar.html")
 						}else{
 							alert('账号或密码错误')
 						}

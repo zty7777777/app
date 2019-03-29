@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		
+		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+		<script type="text/javascript" src="js/mui.min.js"></script>
+
+
+		<style>
+			
+			.title{
+				margin: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+			}
+			
+			.oa-contact-cell.mui-table .mui-table-cell {
+				padding: 11px 0;
+				vertical-align: middle;
+			}
+			
+			.oa-contact-cell {
+				position: relative;
+				margin: -11px 0;
+			}
+	
+			.oa-contact-avatar {
+				width: 75px;
+			}
+			.oa-contact-avatar img {
+				border-radius: 50%;
+			}
+			.oa-contact-content {
+				width: 100%;
+			}
+			.oa-contact-name {
+				margin-right: 20px;
+			}
+			.oa-contact-name, oa-contact-position {
+				float: left;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title" >喵云购物</h1>
+			<a href="tabbar.html" style="float: right;padding-top: 15px;">刷新</a>
+		</header>
+		<div class="flex-container">
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar" id="index">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat" id="newcart">
+				<span id="newcart1" class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge">9</span></span>
+				<span id="newcart2" class="mui-tab-label">购物车</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon mui-icon-contact mui-icon mui-icon-person"></span>
+				<span class="mui-tab-label">个人中心</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon mui-icon-gear"></span>
+				<span class="mui-tab-label">设置</span>
+			</a>
+		</nav>
+		</div>
+		<div class="mui-content">
+			<div id="tabbar" class="mui-control-content mui-active">
+				<div align="center">
+					<iframe align="center" width="100%" height="280px;" src="slider.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+				</div>
+				<div id="goods">
+						<iframe align="center" width="100%" height="1000" src="goods.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+				</div>
+			</div>
+			<div id="tabbar-with-chat" class="mui-control-content">
+				<div id="cart">
+
+					<iframe  align="center" width="100%" height="1000" src="cart.html"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
+				</div>
+			</div>
+			<div id="tabbar-with-contact" class="mui-control-content">
+				<div class="title" align="center">
+					<div class="oa-contact-avatar mui-table-cell">
+						<img width="60" id="image" src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1553659649&di=7cfd9079cdfac0bf8cf7ec9d40976e30&src=http://img1.2345.com/duoteimg/zixunImg/local/2017/04/13/14920525943647.jpg" />
+					</div>
+					<p id="name"></p>
+				</div>
+				<div class="mui-content">
+				    <div class="mui-content-padded">
+				        <button type="button" id="order" class="mui-btn mui-btn-warning mui-btn-block mui-btn-outlined">我 的 订 单</button>
+				        <button type="button" id="collect" class="mui-btn mui-btn-danger mui-btn-block mui-btn-outlined">我 的 收 藏</button>
+				    </div>
+				</div>
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="images/60x60.gif" />
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">张腾雨</h4>
+									<span class="oa-contact-position mui-h6">组长</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									yewenjie@sina.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="images/60x60.gif" />
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">苗博学</h4>
+									<span class="oa-contact-position mui-h6">成员</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									aaa@163.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="images/60x60.gif" />
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">原朝</h4>
+									<span class="oa-contact-position mui-h6">成员</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									luoji@126.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="images/60x60.gif" />
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">李香玉</h4>
+									<span class="oa-contact-position mui-h6">成员</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									ytm@163.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="images/60x60.gif" />
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">南阳</h4>
+									<span class="oa-contact-position mui-h6">成员</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									shiqiang@gmail.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="images/60x60.gif" />
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">严世玉</h4>
+									<span class="oa-contact-position mui-h6">成员</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									shiqiang@gmail.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="images/60x60.gif" />
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">张孟伟</h4>
+									<span class="oa-contact-position mui-h6">成员</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									shiqiang@gmail.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			</div>
+			<div id="tabbar-with-map" class="mui-control-content">
+				<div class="title">这是div模式选项卡中的第4个子页面，该页面展示一个常见的设置示例.</div>
+				<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						新消息通知
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						隐私
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						通用
+					</a>
+				</li>
+			</ul>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li id="switch" class="mui-table-view-cell">
+						定时轮播
+						<div class="mui-switch">
+							<div class="mui-switch-handle"></div>
+						</div>
+					</li>
+				</ul>
+			<ul class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						关于mui
+					</a>
+				</li>
+			</ul>
+			<ul class="mui-table-view" style="margin-top: 25px;">
+				<li class="mui-table-view-cell">
+					<a style="text-align: center;color: #FF3B30;" id="quit">
+						退出登录
+					</a>
+				</li>
+			</ul>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script>
+		mui.init({
+			swipeBack:true //启用右滑关闭功能
+		});
+	</script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script>
+		$(function(){
+			var storage=window.localStorage;
+			var name=storage.name
+			if(typeof(name)=="undefined"){
+				$('#image').html("<img width='60' src='images/60x60.gif'/>")
+				$('#name').html("<a href='index.html'>点击登录</a>")
+			}else{
+				$('#name').html("<p>"+name+"</p>")
+			}
+			$('#index').click(function(){
+				window.location.replace("tabbar.html")
+			})
+			$('#quit').click(function(){
+				var storage=window.localStorage;
+				storage.clear();
+				window.location.replace("index.html")
+			})
+			$('#order').click(function(){
+				var storage=window.localStorage;
+				var name=storage.name;
+				if(typeof(name)=="undefined"){
+					window.location.replace("index.html")
+				}else{
+					window.location.replace("orderlist.html")
+				}
+			})
+			$('#collect').click(function(){
+				var storage=window.localStorage;
+				var name=storage.name;
+				if(typeof(name)=="undefined"){
+					window.location.replace("index.html")
+				}else{
+					mui.alert('代码开发中，☺')
+					/* window.location.replace("orderlist.html") */
+				}
+			})
+		})
+	</script>
+</html>
