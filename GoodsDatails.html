@@ -25,8 +25,13 @@
 						商品金额: <span id="total_fee"></span>
 					</li>
 					<li class="mui-table-view-cell">
-						<p style="text-align:;">浏览次数：<sapn id="look_count"></sapn></p>
+						<p style="text-align:;">
+							浏览次数：<sapn id="look_count"></sapn>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							点赞次数：<sapn id="zan_count"></sapn>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							总收藏次数：<sapn id="collect_count"></sapn>
+						</p>
 					</li>
+					
 					<li align="right">
 						<button type="button"  class="mui-btn mui-btn-primary" id="collect">
 							加入收藏
@@ -79,6 +84,10 @@
 					$("#total_fee").html("<span>"+msg.data.goods_price+"</span>")
 					$("#goods_id").val(msg.data.goods_id)
 					$("#look_count").html("<span>"+msg.look_count+"</span>");
+					$("#zan_count").html("<span>"+msg.zan_count+"</span>");
+					$("#collect_count").html("<span>"+msg.collect_count+"</span>");
+
+
 				}
 			},
 			'json'
@@ -113,7 +122,6 @@
 		$("#collect").click(function(){
 			if(typeof(uid)=="undefined"){
 				alert("您还未登录，请先登录")
-				
 			}else{
 				$.post(
 					"http://second.zty77.com/hb/collect",
